@@ -1,0 +1,96 @@
+.headerContainer{
+    background-color: skyblue;
+    padding: 0.3rem;
+    border-radius: 0.1rem;
+}
+
+.navBarContainer{
+    margin-top: 2rem;
+    border-bottom: 2px solid skyblue;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+ 
+  text-align: right;
+  width: 400px;
+  line-height: 26px;
+  margin-bottom: 10px;
+  flex: 1;
+  }
+  
+  .inputClass {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    display: flex;
+    flex: 3;
+
+  }
+
+  .capitalize {
+    text-transform: capitalize;
+  }
+
+  .input-row{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .tableContainer{
+    background-color:white
+  }
+
+  .addRow{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .deleteButton{
+    display: flex;
+    justify-content: flex-end;
+    flex: 2;
+  }
+
+  .titleContainer{
+    color: skyblue;
+    font-size: 18px;
+  }
+
+  .nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid skyblue;
+    border-radius: 4px 4px 0 0;
+}
+
+.tabTextClass{
+  background-color: skyblue;
+    color: white;
+}
+
+.searchContainer{
+  display: flex;
+}
+
+.warningMsgClass{
+  display: flex;
+  justify-content: center;
+}
+
+.formClass{
+ 
+        height: 100vh;
+        background-color: #f7f6f6;
+}
+
+.mainContainer{
+ background-color: #f7f6f6;
+        border-right: 1px solid #cdcccc;     height: 100vh;
+}
+
+.activeClass{
+ margin-left:20rem
+}

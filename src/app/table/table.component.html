@@ -1,0 +1,129 @@
+<div class="container">
+    <div class="headerContainer">
+        <div class="header">
+            Alerts
+        </div>
+    </div>
+
+    <div class="navBarContainer">
+
+        <ul class="nav nav-tabs">
+            <li  class="active activeClass"><a href="#">Immunization Alerts</a></li>
+            <li><a href="#" class="tabTextClass">Lab Alerts</a></li>
+            <li><a href="#" class="tabTextClass">DI Alerts</a></li>
+            <li><a href="#" class="tabTextClass">Procedure Alerts</a></li>
+            <li><a href="#" class="tabTextClass">RX Specific Alerts</a></li>
+            <li><a href="#" class="tabTextClass">DX Specific Alerts</a></li>
+            <li><a href="#" class="tabTextClass">Patient Specific Alerts</a></li>
+        </ul>
+
+    </div>
+
+    <div class="contentContainer">
+
+
+        <div  class="col-md-7 col-xs-7 mainContainer">
+            <div class="titleContainer">
+                Immunization Alerts
+            </div>
+
+            <div class="searchContainer">
+                <div>Find
+                    <input (keyup)="applyFilter()" [(ngModel)]="filterValue" type="text" id="filterValue"
+                        name="filterValue">
+                </div>
+
+                <div class="deleteButton">
+                    <button (click)="deleteSelected()">Delete</button>
+                </div>
+                <div></div>
+            </div>
+
+
+            <div class="tableContainer">
+
+                <table class="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <input (click)="selectAllItems()" type="checkbox" id="itemID" name="itemID">
+                            </th>
+                            <th (click)="sortFunction(item,booleanValue)" scope="col" *ngFor="let item of headers">
+                                {{item | titlecase}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of filteredData | paginate: { itemsPerPage: 10, currentPage: p }">
+                            <th scope="row">
+                                <input [(ngModel)]="item.isChecked" type="checkbox" id="itemID" name="itemID">
+                            </th>
+                            <td class="capitalize">{{item.name }}</td>
+                            <td class="capitalize">{{item.description }}</td>
+                            <td class="capitalize">{{item.webReference}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="pagination">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+
+
+        </div>
+
+
+        <div  class="col-md-5 col-xs-5 formClass">
+            <div class="input">
+                <form [formGroup]="alertForm">
+                    <div class="input-row">
+                        <label>
+                            Name
+                        </label>
+                        <input type="text" class="inputClass" required formControlName="name" name="name" />
+                    </div>
+
+                    <div class="warningMsgClass" *ngIf="f.name.invalid && f.name.touched">
+                        <small class="text-danger" *ngIf="f.name.errors?.required">Please enter the name!</small>
+                    </div>
+
+
+                    <div class="input-row">
+                        <label>
+                            Description
+                        </label>
+                        <input type="text" required class="inputClass" formControlName="description" name="description" />
+                        
+                    </div>
+
+                    <div class="warningMsgClass" *ngIf="f.description.invalid && f.description.touched">
+                        <small class="text-danger" *ngIf="f.description.errors?.required">Please enter the description!</small>
+                    </div>
+
+                    <div class="input-row">
+                        <label>
+                            Web Ref </label>
+
+                        <input type="text" required class="inputClass" formControlName="webReference" name="webReference" />
+                        
+                    </div>
+                    <div class="warningMsgClass" *ngIf="f.webReference.invalid && f.webReference.touched">
+                        <small class="text-danger" *ngIf="f.webReference.errors?.required">Please enter the Web Reference!</small>
+                    </div>
+
+                    </form>
+
+            </div>
+            <div class="addRow">
+                <button (click)="addnewRow()">Add</button>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
